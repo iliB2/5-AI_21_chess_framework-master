@@ -1,0 +1,1 @@
+CALL conda.bat activate chessbot & python -m project.chess_engines.example_engine
