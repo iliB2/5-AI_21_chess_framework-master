@@ -1,6 +1,7 @@
 from abc import ABC
 import chess
 from project.chess_utilities.utility import Utility
+from project.options import options
 
 """A generic agent class"""
 
@@ -11,6 +12,7 @@ class Agent(ABC):
         """Setup the Search Agent"""
         self.utility = utility
         self.time_limit_move = time_limit_move
+
 
     def calculate_move(self, board: chess.Board):
         pass
