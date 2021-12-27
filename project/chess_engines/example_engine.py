@@ -1,15 +1,17 @@
 #!/usr/bin/python3
+from project.chess_agents.minimax_agent import MinimaxAgent
 from project.chess_engines.uci_engine import UciEngine
 import chess
 from project.chess_agents.example_agent import ExampleAgent
+from project.chess_utilities.UtilityFunction import UtilityFunction
 from project.chess_utilities.example_utility import ExampleUtility
 
 if __name__ == "__main__":
     # Create your utility
-    utility = ExampleUtility()
+    utility = UtilityFunction()
     # Create your agent
-    agent = ExampleAgent(utility, 5.0)
+    agent = MinimaxAgent(utility, 5.0, 2)
     # Create the engine
-    engine = UciEngine("Example engine", "Arne", agent)
+    engine = UciEngine("Minimax engine", "iliB", agent)
     # Run the engine (will loop until the game is done or exited)
     engine.engine_operation()
