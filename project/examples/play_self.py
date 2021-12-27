@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from project.chess_agents.minimax_agent import MinimaxAgent
 from project.chess_utilities.example_utility import ExampleUtility
 import chess
 import chess.svg
@@ -10,7 +11,7 @@ def play_self():
     # Setup a clean board
     board = chess.Board()
     # Create the white and black agent
-    white_player = ExampleAgent(ExampleUtility(), 5.0)
+    white_player = MinimaxAgent(ExampleUtility(), 5.0, 4)
     white_player.name = "White Player"
     black_player = ExampleAgent(ExampleUtility(), 5.0)
     black_player.name = "Black Player"

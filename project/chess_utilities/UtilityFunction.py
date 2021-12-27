@@ -15,6 +15,7 @@ class UtilityFunction(Utility):
         n_white += len(board.pieces(piece_type=chess.KNIGHT, color=chess.WHITE)) * self.options.knight_value
         n_white += len(board.pieces(piece_type=chess.ROOK, color=chess.WHITE)) * self.options.rook_value
         n_white += len(board.pieces(piece_type=chess.QUEEN, color=chess.WHITE)) * self.options.queen_value
+        n_white += len(board.pieces(piece_type=chess.KING, color=chess.WHITE)) * self.options.king_value
 
         n_black = 0
         n_black += len(board.pieces(piece_type=chess.PAWN, color=chess.BLACK)) * self.options.pawn_value
@@ -22,4 +23,6 @@ class UtilityFunction(Utility):
         n_black += len(board.pieces(piece_type=chess.KNIGHT, color=chess.BLACK)) * self.options.knight_value
         n_black += len(board.pieces(piece_type=chess.ROOK, color=chess.BLACK)) * self.options.rook_value
         n_black += len(board.pieces(piece_type=chess.QUEEN, color=chess.BLACK)) * self.options.queen_value
+        n_white += len(board.pieces(piece_type=chess.KING, color=chess.BLACK)) * self.options.king_value
+
         return n_white - n_black

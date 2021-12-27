@@ -21,7 +21,7 @@ def play_stockfish():
     limit = chess.engine.Limit(time=time_limit)
 
     running = True
-    turn_white_player = True
+    turn_white_player = TrueW
 
     # Game loop
     while running:
