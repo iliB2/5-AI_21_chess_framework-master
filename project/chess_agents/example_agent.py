@@ -12,7 +12,6 @@ class ExampleAgent(Agent):
         super().__init__(utility, time_limit_move)
         self.name = "Example search agent"
         self.author = "J. Duym & A. Troch"
-        
 
     # This agent does not perform any searching, it sinmply iterates trough all the moves possible and picks the one with the highest utility
     def calculate_move(self, board: chess.Board):

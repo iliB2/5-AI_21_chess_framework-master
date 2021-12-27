@@ -13,6 +13,5 @@ class Agent(ABC):
         self.utility = utility
         self.time_limit_move = time_limit_move
 
-
     def calculate_move(self, board: chess.Board):
         pass
