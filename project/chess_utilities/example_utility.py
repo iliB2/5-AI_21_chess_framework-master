@@ -22,6 +22,7 @@ class ExampleUtility(Utility):
         n_black += len(board.pieces(piece_type=chess.KNIGHT, color=chess.BLACK))
         n_black += len(board.pieces(piece_type=chess.ROOK, color=chess.BLACK))
         n_black += len(board.pieces(piece_type=chess.QUEEN, color=chess.BLACK))
+
         return n_white - n_black
 
 
