@@ -2,9 +2,7 @@ from project.chess_agents.agent import Agent
 import chess
 from project.chess_utilities.utility import Utility
 import time
-import random
 
-from project.options.UtilityOptions import UtilityOptions
 INFINITY = 9999
 
 

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from project.chess_agents.minimax_agent import MinimaxAgent
 from project.chess_utilities.UtilityFunction import UtilityFunction
-from project.chess_utilities.example_utility import ExampleUtility
 import chess
 import chess.svg
 from project.chess_utilities.example_utility import ExampleUtility
