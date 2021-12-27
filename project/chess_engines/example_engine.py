@@ -5,10 +5,12 @@ import chess
 from project.chess_agents.example_agent import ExampleAgent
 from project.chess_utilities.UtilityFunction import UtilityFunction
 from project.chess_utilities.example_utility import ExampleUtility
+from project.options.UtilityOptions import UtilityOptions
 
 if __name__ == "__main__":
     # Create your utility
-    utility = UtilityFunction()
+    options = UtilityOptions()
+    utility = UtilityFunction(options)
     # Create your agent
     agent = MinimaxAgent(utility, 5.0, 2)
     # Create the engine
