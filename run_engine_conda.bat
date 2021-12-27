@@ -1,1 +1,1 @@
-CALL conda.bat activate chessbot & python -m project.chess_engines.example_engine
+CALL conda.bat activate chessbot & python -m project.chess_engines.minmax_engine

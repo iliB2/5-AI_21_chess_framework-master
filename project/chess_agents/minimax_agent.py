@@ -5,6 +5,7 @@ import time
 import random
 
 from project.options.UtilityOptions import UtilityOptions
+INFINITY = 9999
 
 
 class MinimaxAgent(Agent):
@@ -18,16 +19,16 @@ class MinimaxAgent(Agent):
         start_time = time.time()
 
         flip_value = 1 if board.turn == chess.WHITE else -1
-        bestMoveValue = -9999
+        bestMoveValue = -INFINITY
         bestMove = None
         for move in list(board.legal_moves):
             if time.time() - start_time > self.time_limit_move:
                 bestMove = move
                 break
             board.push(move)
-            value = max(bestMoveValue, self.minimax(self.maxDepth - 1, board, False, flip_value))
+            value = max(bestMoveValue, self.minimax(self.maxDepth - 1, board, False, flip_value, -INFINITY, INFINITY))
             board.pop()
-            if value > bestMoveValue :
+            if value > bestMoveValue:
                 bestMove = move
                 bestMoveValue = value
 
@@ -35,23 +36,31 @@ class MinimaxAgent(Agent):
         print("Best move: " + str(bestMove))
         return bestMove
 
-    def minimax(self, currDepth, board, is_maximizing, flip_value):
+    def minimax(self, currDepth, board, is_maximizing, flip_value, alpha, beta):
         if currDepth == 0:
             return self.utility.board_value(board) * flip_value
         if is_maximizing:
-            bestMove = -9999
+            bestMoveValue = -INFINITY
             for move in list(board.legal_moves):
                 board.push(move)
-                bestMove = max(bestMove, self.minimax(currDepth - 1, board, not is_maximizing, flip_value))
+                value = self.minimax(currDepth - 1, board, not is_maximizing, flip_value, alpha, beta)
+                bestMoveValue = max(bestMoveValue, value)
+                alpha = max(alpha, bestMoveValue)
                 board.pop()
-            return bestMove
+                if beta <= alpha:
+                    break
+            return bestMoveValue
         else:
-            bestMove = 9999
+            bestMoveValue = INFINITY
             for move in list(board.legal_moves):
                 board.push(move)
-                bestMove = min(bestMove, self.minimax(currDepth - 1, board, not is_maximizing, flip_value))
+                value = self.minimax(currDepth - 1, board, not is_maximizing, flip_value, alpha, beta)
+                bestMoveValue = min(bestMoveValue, value)
+                beta = min(beta, bestMoveValue)
                 board.pop()
-            return bestMove
+                if beta <= alpha:
+                    break
+            return bestMoveValue
 
 
 
