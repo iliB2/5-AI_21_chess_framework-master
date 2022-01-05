@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 from project.chess_agents.minimax_agent import MinimaxAgent
+from project.chess_utilities.EvaluateUtility import EvaluateUtility
 from project.chess_utilities.UtilityFunction import UtilityFunction
 import chess
 import chess.svg
 from project.chess_utilities.example_utility import ExampleUtility
 from project.chess_agents.example_agent import ExampleAgent
+from project.options.EvaluateOptions import EvaluateOptions
 from project.options.UtilityOptions import UtilityOptions
 
 """ Two agents play against eachother until the game is finished """
@@ -12,8 +14,8 @@ def play_self():
     # Setup a clean board
     board = chess.Board()
     # Create the white and black agent
-    options = UtilityOptions()
-    utility = UtilityFunction(options)
+    options = EvaluateOptions()
+    utility = EvaluateUtility(options)
     white_player = MinimaxAgent(utility, 5.0, 4)
     white_player.name = "White Player"
     black_player = ExampleAgent(ExampleUtility(), 5.0)
