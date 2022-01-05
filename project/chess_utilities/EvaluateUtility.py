@@ -8,27 +8,31 @@ class EvaluateUtility(Utility):
         self.options = options
 
     def getAbsoluteValue(self, board: chess.Board, x):
-
-        if board.pieces(piece_type=chess.PAWN, color=chess.WHITE):
+        if board.piece_at(x).piece_type == 1 & board.piece_at(x).color == chess.WHITE:
             return self.options.pawn_value + (self.options.pawnEvalWhite[x])
-        elif board.pieces(piece_type=chess.PAWN, color=chess.BLACK):
+        elif board.piece_at(x).piece_type == 1 & board.piece_at(x).color == chess.BLACK:
             return self.options.pawn_value + (self.options.pawnEvalBlack[x])
-        elif board.pieces(piece_type=chess.ROOK, color=chess.WHITE):
+        elif board.piece_at(x).piece_type == 2 & board.piece_at(x).color == chess.WHITE:
+            return self.options.knight_value + (self.options.KnightEval[x])
+        elif board.piece_at(x).piece_type == 2 & board.piece_at(x).color == chess.BLACK:
+            return self.options.knight_value + (self.options.KnightEval[x])
+        elif board.piece_at(x).piece_type == 4 & board.piece_at(x).color == chess.WHITE:
             return self.options.rook_value + (self.options.rookEvalWhite[x])
-        elif board.pieces(piece_type=chess.ROOK, color=chess.BLACK):
+        elif board.piece_at(x).piece_type == 4 & board.piece_at(x).color == chess.BLACK:
             return self.options.rook_value + (self.options.rookEvalBlack[x])
-        elif board.pieces(piece_type=chess.BISHOP, color=chess.WHITE):
+        elif board.piece_at(x).piece_type == 3 & board.piece_at(x).color == chess.WHITE:
             return self.options.bishop_value + (self.options.BishopEvalWhite[x])
-        elif board.pieces(piece_type=chess.BISHOP, color=chess.BLACK):
+        elif board.piece_at(x).piece_type == 3 & board.piece_at(x).color == chess.BLACK:
             return self.options.bishop_value + (self.options.BishopEvalBlack[x])
-        elif board.pieces(piece_type=chess.QUEEN, color=chess.WHITE):
+        elif board.piece_at(x).piece_type == 5 & board.piece_at(x).color == chess.WHITE:
             return self.options.queen_value + (self.options.evalQueen[x])
-        elif board.pieces(piece_type=chess.QUEEN, color=chess.BLACK):
+        elif board.piece_at(x).piece_type == 5 & board.piece_at(x).color == chess.BLACK:
             return self.options.queen_value + (self.options.evalQueen[x])
-        elif board.pieces(piece_type=chess.KING, color=chess.WHITE):
+        elif board.piece_at(x).piece_type == 6 & board.piece_at(x).color == chess.WHITE:
             return self.options.king_value + (self.options.kingEvalWhite[x])
-        elif board.pieces(piece_type=chess.KING, color=chess.BLACK):
+        elif board.piece_at(x).piece_type == 6 & board.piece_at(x).color == chess.BLACK:
             return self.options.king_value + (self.options.kingEvalBlack[x])
+
 
     def getPieceValue(self, board: chess.Board, position: int):
         absoluteValue = 0
@@ -42,5 +46,5 @@ class EvaluateUtility(Utility):
         totalevaluation = 0
         for i in range(64):
             if board.piece_at(i):
-                totalevaluation += self.getPieceValue(board, i)
+                totalevaluation += self.getAbsoluteValue(board, i)
         return totalevaluation
