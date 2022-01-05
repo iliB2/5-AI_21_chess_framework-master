@@ -31,9 +31,22 @@ class EvaluateUtility(Utility):
 
 
 
+    def getPieceValue(self, board: chess.board, x, y):
+        if(board.pieces(color=chess.WHITE)):
+            absolutevalue = self.getAbsoluteValue(board.pieces(color=chess.WHITE), x, y)
+        elif(board.pieces(color=chess.BLACK)):
+            absolutevalue = self.getAbsoluteValue(board.pieces(color=chess.BLACK), x, y)
+        return absolutevalue
 
 
 
+
+    def evaluateBoard(self, board: chess.board):
+        totalEvaluation = 0
+        for i in range(8):
+            for k in range(8):
+                totalEvaluation = totalEvaluation + self.getPieceValue(chess.Board[i][k], i, k)
+        return totalEvaluation
 
 
 
