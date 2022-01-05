@@ -50,7 +50,7 @@ class EvaluateUtility(Utility):
             absolutevalue = self.getAbsoluteValue(board, x)
         return absolutevalue
 
-    def evaluateBoard(self, board: chess.Board):
+    def board_value(self, board: chess.Board):
         totalevaluation = 0
         for i in range(63):
             totalevaluation = totalevaluation + self.getPieceValue(self, board.piece_at(i), i)
