@@ -24,6 +24,7 @@ class MinimaxAgent(Agent):
         flip_value = 1 if board.turn == chess.WHITE else -1
         bestMoveValue = -INFINITY
         bestMove = None
+
         for move in list(board.legal_moves):
             if time.time() - self.start_time > self.time_limit_move:
                 bestMove = move
@@ -52,11 +53,12 @@ class MinimaxAgent(Agent):
                     break
                 board.push(move)
                 self.nodes_explored += 1
+
                 value = self.minimax(currDepth - 1, board, not is_maximizing, flip_value, alpha, beta)
                 bestMoveValue = max(bestMoveValue, value)
                 alpha = max(alpha, bestMoveValue)
                 board.pop()
-                if beta <= alpha:
+                if beta <= bestMoveValue:
                     break
             return bestMoveValue
 
@@ -67,11 +69,12 @@ class MinimaxAgent(Agent):
                     break
                 board.push(move)
                 self.nodes_explored += 1
+
                 value = self.minimax(currDepth - 1, board, not is_maximizing, flip_value, alpha, beta)
                 bestMoveValue = min(bestMoveValue, value)
                 beta = min(beta, bestMoveValue)
                 board.pop()
-                if beta <= alpha:
+                if bestMoveValue <= alpha:
                     break
             return bestMoveValue
 
