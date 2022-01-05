@@ -32,15 +32,8 @@ class EvaluateUtility(Utility):
             return self.options.king_value + (self.options.kingEvalWhite[x])
         elif board.piece_at(x).piece_type == 6 & board.piece_at(x).color == chess.BLACK:
             return self.options.king_value + (self.options.kingEvalBlack[x])
-
-
-    def getPieceValue(self, board: chess.Board, position: int):
-        absoluteValue = 0
-        if board.piece_at(position).color == chess.WHITE:
-            absoluteValue = self.getAbsoluteValue(board, position)
-        elif board.piece_at(position).color == chess.BLACK:
-            absoluteValue = self.getAbsoluteValue(board, position)
-        return absoluteValue
+        else:
+            return 0
 
     def board_value(self, board: chess.Board):
         totalevaluation = 0
