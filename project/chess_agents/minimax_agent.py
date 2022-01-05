@@ -39,7 +39,7 @@ class MinimaxAgent(Agent):
 
     def minimax(self, currDepth, board, is_maximizing, flip_value, alpha, beta):
         if currDepth == 0:
-            return self.utility.board_value(board) * flip_value
+            return self.utility.evaluateboard(board) * flip_value
         if is_maximizing:
             bestMoveValue = -INFINITY
             for move in list(board.legal_moves):
