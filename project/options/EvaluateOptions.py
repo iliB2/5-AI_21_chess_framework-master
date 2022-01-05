@@ -64,5 +64,11 @@ class EvaluateOptions(Options):
                                2.0,  3.0,  1.0,  0.0,  0.0,  1.0,  3.0,  2.0]
 
         self.kingEvalBlack = self.kingEvalWhite.__reversed__()
+        self.pawn_value = 10
+        self.knight_value = 30
+        self.bishop_value = 30
+        self.rook_value = 50
+        self.queen_value = 90
+        self.king_value = 900
 
 
