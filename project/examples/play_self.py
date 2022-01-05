@@ -16,7 +16,7 @@ def play_self():
     # Create the white and black agent
     options = EvaluateOptions()
     utility = EvaluateUtility(options)
-    white_player = MinimaxAgent(utility, 5.0, 4)
+    white_player = MinimaxAgent(utility, 5.0, 2)
     white_player.name = "White Player"
     black_player = ExampleAgent(ExampleUtility(), 5.0)
     black_player.name = "Black Player"
