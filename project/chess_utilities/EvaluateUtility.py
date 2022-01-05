@@ -45,7 +45,7 @@ class EvaluateUtility(Utility):
         totalEvaluation = 0
         for i in range(8):
             for k in range(8):
-                totalEvaluation = totalEvaluation + self.getPieceValue(chess.Board[i][k], i, k)
+                totalEvaluation = totalEvaluation + self.getPieceValue(board[i][k], i, k)
         return totalEvaluation
 
 
