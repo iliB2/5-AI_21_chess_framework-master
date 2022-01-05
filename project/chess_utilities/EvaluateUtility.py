@@ -41,5 +41,6 @@ class EvaluateUtility(Utility):
     def board_value(self, board: chess.Board):
         totalevaluation = 0
         for i in range(63):
-            totalevaluation += self.getPieceValue(board, i)
+            if board.piece_at(i):
+                totalevaluation += self.getPieceValue(board, i)
         return totalevaluation
