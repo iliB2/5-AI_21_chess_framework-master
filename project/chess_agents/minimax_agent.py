@@ -21,18 +21,20 @@ class MinimaxAgent(Agent):
     def calculate_move(self, board: chess.Board):
         self.start_time = time.time()
 
-        flip_value = 1 if board.turn == chess.WHITE else -1
-        bestMoveValue = -INFINITY
-        bestMove = None
+        flip_value = 1 if board.turn == chess.WHITE else -1  # player either B or W -> heuristic always positive
+        bestMoveValue = -INFINITY  # heuristic value best move
+        bestMove = None  # actual best move
 
         for move in list(board.legal_moves):
-            if time.time() - self.start_time > self.time_limit_move:
+            if time.time() - self.start_time > self.time_limit_move:  # timecheck
                 bestMove = move
                 break
-            board.push(move)
-            self.nodes_explored += 1
+            board.push(move)  # expand node
+            self.nodes_explored += 1  # count nodes
+            #  minimax call
             value = max(bestMoveValue, self.minimax(self.maxDepth - 1, board, False, flip_value, -INFINITY, INFINITY))
             board.pop()
+            # only replace value if found value is better
             if value > bestMoveValue:
                 bestMove = move
                 bestMoveValue = value

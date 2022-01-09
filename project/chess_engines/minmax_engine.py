@@ -8,8 +8,8 @@ if __name__ == "__main__":
     options = UtilityOptions()
     utility = UtilityFunction(options)
     # Create your agent
-    agent = MinimaxAgent(utility, 15.0, 10)
+    agent = MinimaxAgent(utility, 14.9, 4)
     # Create the engine
-    engine = UciEngine("Minimax engine", "iliB", agent)
+    engine = UciEngine("Minimax engine", "Jeoffrey, Max & Ilias", agent)
     # Run the engine (will loop until the game is done or exited)
     engine.engine_operation()

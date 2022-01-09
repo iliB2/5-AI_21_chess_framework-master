@@ -15,10 +15,11 @@ def play_self():
     board = chess.Board()
     # Create the white and black agent
     options = EvaluateOptions()
+    options2 = UtilityOptions()
     utility = EvaluateUtility(options)
-    white_player = MinimaxAgent(utility, 5.0, 2)
+    white_player = MinimaxAgent(UtilityFunction(options2), 5.0, 2)
     white_player.name = "White Player"
-    black_player = ExampleAgent(ExampleUtility(), 5.0)
+    black_player = MinimaxAgent(UtilityFunction(options2), 5.0, 2)
     black_player.name = "Black Player"
 
     running = True
